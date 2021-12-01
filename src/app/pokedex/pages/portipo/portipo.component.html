@@ -1,0 +1,61 @@
+
+<h1 style="text-align: center;">Elige el tipo del pokemon</h1>
+<mat-form-field appearance="fill">
+  <mat-label>Buscar por tipo</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let tipos of termino" [value]="tipos.name" (click)="buscarUrlTipo( tipos.url )" >
+      {{tipos.name | titlecase}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-divider></mat-divider>
+
+<div *ngIf="img">
+  <mat-card align>Datos de -  <strong>{{ nombre | uppercase }}</strong> -</mat-card>
+  <mat-tab-group mat-align-tabs="center" animationDuration="0ms" color="accent" backgroundColor="primary" class="example-small-box mat-elevation-z4">
+      
+   
+      <mat-tab label="Imagen">
+        <div class="example-small-box mat-elevation-z4" style="background-color: rgb(83, 83, 83); height: 110px; width: 100px;">
+          <img  [src]=" img " alt="{{ nombre }}">
+        </div>
+      </mat-tab>
+    
+      <mat-tab label="Peso(kg)"><h1>{{ peso | alturapeso}}</h1> </mat-tab>
+      <mat-tab label="Altura(mts)"><h1>{{ altura | alturapeso}}</h1></mat-tab>
+      <mat-tab label="Habilidad" >
+        <mat-list *ngFor="let datos of habilidades">
+          {{ datos.ability.name | titlecase}}
+        </mat-list>
+        </mat-tab>
+      <mat-tab label="Mas informacion">
+        <app-info-extra [estadisticas]="estadistica" [experiencia]="experienciaB"></app-info-extra>
+       
+        <button mat-stroked-button color="warn" routerLink="/pokemon/listapokemon" >Ir a lista de pokemones</button>
+      </mat-tab>
+    
+  </mat-tab-group>
+</div>
+ 
+<div *ngIf="tiposVisible">
+  <div class="flex">
+    <mat-card style="width: 100%;" >Pokemones:</mat-card>
+    <mat-list-item *ngFor="let tipo of tipoP">
+      <mat-list>
+        <button mat-button color="accent" (click)="infoPokemon( tipo.pokemon.url )" >{{ tipo.pokemon.name }}</button>
+      </mat-list>
+    </mat-list-item>
+  </div>
+</div>
+
+
+
+
+  
+
+<mat-divider></mat-divider>
+
+
+
+

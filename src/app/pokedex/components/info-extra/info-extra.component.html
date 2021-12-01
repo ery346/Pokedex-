@@ -1,0 +1,16 @@
+
+        <mat-grid-list cols="3" rowHeight="100px">
+            <mat-list-item role="listitem"><h3>Experiencia base</h3></mat-list-item >
+            <mat-list-item role="listitem">
+                {{experiencia}}
+            </mat-list-item>
+          
+          </mat-grid-list>
+
+          <mat-grid-list cols="3" rowHeight="200px">
+            <mat-list-item role="listitem"><h3> Estadísticas</h3></mat-list-item >
+            <mat-list-item role="listitem"> 
+                <div *ngFor="let i of estadisticas">{{ i.stat.name | titlecase}}: {{ i.base_stat }} </div>
+            </mat-list-item>
+          
+          </mat-grid-list>

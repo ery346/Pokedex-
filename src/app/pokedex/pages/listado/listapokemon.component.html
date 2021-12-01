@@ -1,0 +1,49 @@
+
+<br>
+<mat-card-title style="display: flex; justify-content: center;">Listado de pokemones</mat-card-title>
+<mat-divider></mat-divider>
+<br>
+<mat-grid-list cols="5" rowHeight="4:1" >
+    <div *ngFor="let lista of listado">
+        <mat-grid-tile>
+            <mat-card mat-card>
+                <button mat-stroked-button color="basic" (click)="infoLista( lista.url )">
+                    {{ lista.name | titlecase}}
+                    <mat-icon color="accent">info</mat-icon>
+                  </button>
+            </mat-card>
+        </mat-grid-tile>    
+
+    </div>
+    
+  </mat-grid-list>
+<br>
+ 
+  <div style="display: flex; justify-content: end;"> <span>{{ paginas }} de 43 paginas</span></div>
+      
+  <mat-divider></mat-divider>
+
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <button mat-flat-button color="primary" (click)="anteriorLista( )" [disabled]="dis" >
+        <mat-icon><span class="material-icons">
+          chevron_left
+          </span></mat-icon>
+      </button>
+        <pre>anterior - siguiente</pre> 
+    <button mat-flat-button color="primary" (click)="siguienteLista( siguienteListado )">
+        <mat-icon><span class="material-icons">
+          navigate_next
+          </span></mat-icon>
+      </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <app-info-lista [nombre]="componenteNombre" 
+                  [imagen]="img" 
+                  [habilidad]="habilidades"
+                  [Peso]="peso"
+                  [Altura]="altura"
+                  [ID]="idPokemon"
+                  ></app-info-lista>
+  

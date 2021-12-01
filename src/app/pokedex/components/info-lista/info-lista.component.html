@@ -1,0 +1,28 @@
+
+
+<div *ngIf="imagen">
+    <mat-grid-list cols="6" rowHeight="3:1">
+        <mat-grid-tile><strong>Id</strong></mat-grid-tile>
+        <mat-grid-tile><strong>Nombre</strong></mat-grid-tile>
+        <mat-grid-tile><strong>Imagen</strong></mat-grid-tile>
+        <mat-grid-tile><strong>Habilidades</strong></mat-grid-tile>
+        <mat-grid-tile><strong>Peso(kg)</strong></mat-grid-tile>
+        <mat-grid-tile><strong>Altura(mts)</strong></mat-grid-tile>
+    
+        <mat-divider></mat-divider>
+    
+        <mat-grid-tile> {{ ID }} </mat-grid-tile>
+        <mat-grid-tile>{{ nombre }}</mat-grid-tile>
+        <mat-grid-tile><img src="{{imagen}}" width="100px"></mat-grid-tile>
+        <mat-grid-tile>
+            <mat-list role="list" *ngFor="let i of habilidad">
+                <mat-list-item role="listitem"><p>{{ i.ability.name }}</mat-list-item>
+            </mat-list>
+        </mat-grid-tile>
+        <mat-grid-tile> {{ Peso | alturapeso }} </mat-grid-tile>
+        <mat-grid-tile> {{ Altura | alturapeso }} </mat-grid-tile>
+      </mat-grid-list>
+</div>
+<br>
+<mat-divider></mat-divider>
+  

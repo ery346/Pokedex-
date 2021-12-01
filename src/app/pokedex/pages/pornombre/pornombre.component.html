@@ -1,0 +1,72 @@
+<button mat-button (click)="refrescar()">Inicio</button>
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Buscar por nombre...</mat-label>
+    <input matInput  #pokemon (keyup.enter)="buscar()">
+</mat-form-field>
+
+<div *ngIf="nombre">
+  <mat-grid-list cols="5" rowHeight="500px" >
+
+    <mat-grid-tile>
+      <mat-card>
+          <h2>Nombre </h2>
+          <mat-divider></mat-divider>
+          <mat-list-item role="listitem">{{ nombre | uppercase}}</mat-list-item>
+     
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-list-item role="listitem">Peso: {{ peso | alturapeso }} <code>kg</code> </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">Altura: {{ altura | alturapeso}} <code>mts</code> </mat-list-item>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <img [src]="img" alt="">
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <h2>Habilidades </h2>
+        <mat-divider></mat-divider>
+        <div *ngFor="let item of habilidades">
+          <mat-list role="list">
+            <mat-list-item> {{item.ability.name}}</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      Ver mas informacion
+      <mat-card>
+        <button mat-icon-button color="warn" aria-label="Example icon button with a home icon">
+          
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </mat-card>
+    </mat-grid-tile>
+ 
+  </mat-grid-list>
+
+</div>
+ 
+
+
+    
+  
+    
+ 
+
+
+
+
+
+  
+  
