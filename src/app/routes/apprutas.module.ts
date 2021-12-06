@@ -8,8 +8,11 @@ import { ComenzarGuard } from '../pokedex/guard/comenzar.guard';
 const rutas: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    pathMatch: 'full',
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'pokemon',

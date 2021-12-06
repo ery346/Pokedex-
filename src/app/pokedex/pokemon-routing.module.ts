@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MasInfoComponent } from './components/mas-info/mas-info.component';
 import { ListapokemonComponent } from './pages/listado/listapokemon.component';
 import { PornombreComponent } from './pages/pornombre/pornombre.component';
 import { PortipoComponent } from './pages/portipo/portipo.component';
@@ -12,6 +13,10 @@ const rutas: Routes = [
       {
         path: 'listapokemon',
         component: ListapokemonComponent
+      },
+      {
+        path: 'masinfo',
+        component: MasInfoComponent
       },
       {
         path: 'pornombre',

@@ -21,7 +21,9 @@
         </mat-grid-tile>
         <mat-grid-tile> {{ Peso | alturapeso }} </mat-grid-tile>
         <mat-grid-tile> {{ Altura | alturapeso }} </mat-grid-tile>
+        <mat-grid-tile><button mat-icon-button (click)="masInfo( ID )" routerLink="/pokemon/masinfo" color="warn">Mas info</button></mat-grid-tile>
       </mat-grid-list>
+      
 </div>
 <br>
 <mat-divider></mat-divider>

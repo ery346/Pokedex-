@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Ability, Move, Pokebuscar } from '../../interfaces/pokeInter.interface';
+import { Router,  } from '@angular/router';
+import { Ability, Move, Pokebuscar, Species, Type } from '../../interfaces/pokeInter.interface';
 import { PokemonserviceService } from '../../service/pokemonservice.service';
 
 @Component({
@@ -9,9 +10,7 @@ import { PokemonserviceService } from '../../service/pokemonservice.service';
   img{
     height: 200px;
   }
-  mat-grid-list{
-    background-color: #983399;
-  }
+
   mat-card {
     border-radius: 50px;
   }
@@ -24,43 +23,40 @@ import { PokemonserviceService } from '../../service/pokemonservice.service';
   ]
 })
 export class PornombreComponent implements OnInit {
-  nombre!: string;
-  peso!: number;
-  altura!: number;
+
   img!: string;
   habilidades: Ability[] =[]
-  movimientos: Move[] = []
-
+  movimientos: any = [];
+  error: string = 'ocultar';
   valor!: string;
   termino: string = '';
-  
+  spinner: string = 'ocultar';
+  datos!: Pokebuscar;
+  tipo: Type[] = [];
   @ViewChild('pokemon')buscarPokemon! : ElementRef<HTMLInputElement>
 
   constructor(private pokemonS: PokemonserviceService) { }
 
   ngOnInit(): void {
-
+  
   }
 
   buscar(){
     this.valor = this.buscarPokemon.nativeElement.value;
 
+    this.spinner = 'mostrar';
     this.pokemonS.getPokemon( this.valor ).subscribe( (datos: Pokebuscar) => {
-      console.log(datos)
-     
-      this.nombre = datos.name;
-      this.peso = datos.weight;
-      this.altura = datos.height
+      this.spinner = 'ocultar';
+      this.error = 'ocultar';
+      this.datos = datos;
+      this.tipo = datos.types;
       this.movimientos = datos.moves
       this.img = datos.sprites.front_default;
       this.habilidades = datos.abilities;
-    })
+    }, err => { this.error = 'mostrar'; this.spinner = 'ocultar'})
 
     console.log(this.termino)
   }
 
-  refrescar(){
-    window.location.reload()
-  }
   
 }

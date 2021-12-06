@@ -9,6 +9,13 @@
   </mat-select>
 </mat-form-field>
 
+<div [class]="barraDeProgreso">
+  <div style="margin-left: 10px;">
+    <img src="assets/pikaRun.gif" width="50" height="36">
+  </div>
+  <mat-progress-bar mode="query" color="warn"></mat-progress-bar>
+</div>
+
 <mat-divider></mat-divider>
 
 <div *ngIf="img">
@@ -28,11 +35,11 @@
         <mat-list *ngFor="let datos of habilidades">
           {{ datos.ability.name | titlecase}}
         </mat-list>
-        </mat-tab>
+      </mat-tab>
       <mat-tab label="Mas informacion">
         <app-info-extra [estadisticas]="estadistica" [experiencia]="experienciaB"></app-info-extra>
-       
-        <button mat-stroked-button color="warn" routerLink="/pokemon/listapokemon" >Ir a lista de pokemones</button>
+
+        <button mat-stroked-button color="warn" routerLink="/pokemon/masinfo" (click)="masInfo( id )" >Info</button>
       </mat-tab>
     
   </mat-tab-group>

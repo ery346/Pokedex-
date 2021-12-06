@@ -42,17 +42,19 @@ export class PortipoComponent implements OnInit {
   img!: string;
   habilidades!: Ability[];
   visibilidad: string = 'ocultar';
-  
+  id!: number;
   estadistica: Stat[] = [];
   experienciaB!: number;
   tiposVisible: boolean = false;
-
+  barraDeProgreso: string = 'ocultar';
  
   constructor(private pokemonS: PokemonserviceService) { }
 
   ngOnInit(): void {
 
+    this.barraDeProgreso = 'mostrar';
     this.pokemonS.getTipo().subscribe((datos: PokeTipo) => {
+      this.barraDeProgreso = 'ocultar';
       this.termino = datos.results;
     });
 
@@ -60,8 +62,9 @@ export class PortipoComponent implements OnInit {
 
   buscarUrlTipo( url: string){
     this.tiposVisible = true;
-
+    this.barraDeProgreso = 'mostrar';
     this.pokemonS.getSelectUrl( url ).subscribe( (dato: PokemonOpciones) => {
+      this.barraDeProgreso = 'ocultar';
       this.tipoP = dato.pokemon
     });
   
@@ -69,9 +72,11 @@ export class PortipoComponent implements OnInit {
 
   infoPokemon(  url: string ){
     this.urlPokemon = url;
-
+    this.barraDeProgreso = 'mostrar';
     this.pokemonS.getInfoPOkemon(`${ this.urlPokemon }`).subscribe((datos: Pokebuscar) => {
-      
+      console.log(datos)
+      this.id = datos.id;
+      this.barraDeProgreso = 'ocultar';
       this.visibilidad = 'mostrar';
       this.nombre = datos.name;
       this.peso = datos.weight;
@@ -86,4 +91,7 @@ export class PortipoComponent implements OnInit {
 
   }
 
+  masInfo( id: number ){
+    this.pokemonS.getId( id );
+  }
 }

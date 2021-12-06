@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { InfoExtraComponent } from './components/info-extra/info-extra.component';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { InfoListaComponent } from './components/info-lista/info-lista.component';
+import { MasInfoComponent } from './components/mas-info/mas-info.component';
 
 
 
@@ -22,7 +23,8 @@ import { InfoListaComponent } from './components/info-lista/info-lista.component
     HomeComponent,
     AlturapesoPipe,
     InfoExtraComponent,
-    InfoListaComponent
+    InfoListaComponent,
+    MasInfoComponent
   ],
   exports:[
     HomeComponent

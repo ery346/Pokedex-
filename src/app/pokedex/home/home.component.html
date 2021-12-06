@@ -1,54 +1,29 @@
-<mat-drawer-container class="example-container" fullscreen>
-    <mat-toolbar >
-        <button type="button" mat-icon-button (click)="drawer.toggle()" value="menu">
-          <mat-icon >
-            dashboard
-          </mat-icon>
-        </button>
-        <span class="spacer" ></span>
-      <span>Pokedex</span>
-      <span class="spacer" ></span>
-      <button mat-raised-button color="basic" (click)="comenzar()" routerLink="/pokemon/listapokemon" disabled="{{habilitado}}"  >Iniciar</button>
-    </mat-toolbar>
+<mat-grid-list cols="2" rowHeight="2:1" >
+  <mat-grid-tile>
+    <div>
+      <h1><b>Bienvenido</b> </h1>
+      <mat-divider></mat-divider>
+      <pre>Busca a tus pokemones preferidos teniendo 3 opciones de busqueda:</pre>
+      <ul>
+        <pre>
+          <li>Por Nombre</li>
+          <li>Por tipo de pokemon</li>
+          <li>Y puedes ver un listado de todos los pokemones existentes</li>
+        </pre>
+      </ul>
+    </div>
+  </mat-grid-tile>
+  
+  <mat-grid-tile>
+ 
+      <i>Las rutas estan protegidas... para comenzar tus busquedas da click a iniciar</i> 
    
-    <mat-drawer #drawer class="example-sidenav" mode="over">
-      
-      <mat-toolbar >
-        <h1>Busqueda</h1>
-        <span class="spacer" ></span>
-        <mat-divider></mat-divider>
-          <mat-icon >
-            search
-          </mat-icon>
-
-      </mat-toolbar>
-
-      <mat-toolbar-row>
-        <a mat-button routerLink="/pokemon/listapokemon"> 
-          Lista de pokemones
-        </a>
-      </mat-toolbar-row>
-      <mat-divider></mat-divider>
-      
-      <mat-toolbar-row>
-        <a mat-button routerLink="/pokemon/pornombre">
-          Por nombre
-        </a>
-      </mat-toolbar-row>
-      <p></p>
-      <mat-divider></mat-divider>
-
-      <mat-toolbar-row>
-        <a  mat-button routerLink="/pokemon/portipo"> 
-          Por tipo
-        </a>
-      </mat-toolbar-row>
+  </mat-grid-tile>
   
-        <p></p>
-      <mat-divider></mat-divider>
-    
-    </mat-drawer>
-
-    <router-outlet></router-outlet>
   
-  </mat-drawer-container>
+  
+</mat-grid-list>
+
+
+
+

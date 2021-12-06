@@ -10,9 +10,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -27,8 +27,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatListModule,
     MatSelectModule,
-    MatAutocompleteModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

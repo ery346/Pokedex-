@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Ability } from '../../interfaces/pokeInter.interface';
+import { PokemonserviceService } from '../../service/pokemonservice.service';
 
 
 @Component({
@@ -22,11 +23,15 @@ export class InfoListaComponent implements OnInit {
   @Input()Altura!: number;
 
   @Input()ID!: number;
-  constructor() { }
+
+  constructor( private pokemonS: PokemonserviceService) { }
 
   ngOnInit(): void {
     
   }
 
+  masInfo( id: number){
+    this.pokemonS.getId( id );
+  }
 
 }

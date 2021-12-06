@@ -1,0 +1,83 @@
+<mat-grid-list cols="4" rowHeight="300px" >
+
+    <mat-grid-tile>
+      <mat-card>
+        <img [src]="img" alt="pokemon">
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-list>
+          <h2>Nombre </h2>
+          <mat-divider></mat-divider>
+            <mat-list-item role="listitem">{{ dato.name | uppercase}}</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-list>
+        <h2>Id</h2>
+        <div>{{ dato.id }}</div>
+      </mat-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-list>
+        <h2>Tipo</h2>
+        <div *ngFor="let tipos of tipo">{{ tipos.type.name }}</div>
+      </mat-list>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile>
+      <mat-list>
+      <h2>Habilidades </h2>
+      <mat-divider></mat-divider>
+      <div *ngFor="let item of habilidades">
+          <mat-list-item> {{item.ability.name}}
+
+          </mat-list-item>
+      </div>
+    </mat-list>
+  </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-list>
+        <mat-list-item role="listitem">Peso: {{ dato.weight| alturapeso }} <code>kg</code> </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">Altura: {{ dato.height| alturapeso}} <code>mts</code> </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-list>
+        <h2>Experiencia Base</h2>
+        <div>{{ dato.base_experience }}</div>
+      </mat-list>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <h2>Estadísticas</h2>
+  <mat-divider></mat-divider>
+    <mat-grid-list cols="5" rowHeight="50px">
+    <mat-grid-tile *ngFor="let i of estadisticas" >
+        <mat-list role="list">
+          <mat-list-item>{{ i.stat.name | titlecase}}: {{ i.base_stat }}</mat-list-item>
+        </mat-list>
+    </mat-grid-tile>
+    </mat-grid-list>
+
+  <h2>Movimientos</h2>
+  <mat-divider></mat-divider>
+    <mat-grid-list cols="5" rowHeight="50px">
+    <mat-grid-tile *ngFor="let mov of movimientos" >
+        <mat-list role="list">
+          <mat-list-item>{{ mov.move.name }}</mat-list-item>
+        </mat-list>
+    </mat-grid-tile>
+    </mat-grid-list>
+

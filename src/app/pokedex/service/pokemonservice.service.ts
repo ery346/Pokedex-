@@ -1,28 +1,38 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pokebuscar, Pokemon, PokemonLista20, PokemonOpciones, PokeTipo } from '../interfaces/pokeInter.interface';
+import { Pokebuscar, PokemonLista20, PokemonOpciones, PokeTipo } from '../interfaces/pokeInter.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonserviceService {
-
+  private urlFijoListado: string= 'https://pokeapi.co/api/v2/pokemon?limit=26';
   private url: string = 'https://pokeapi.co/api/v2/';
- 
   private configUrl!: any;
 
   validarr!: boolean;
-
+  iid!: number;
+  get urlListado(){
+    return this.urlFijoListado;
+  }
   get validacion(){
     return this.validarr;
+  }
+
+  get identificador(){
+    return this.iid ;
   }
 
 
   constructor(private http: HttpClient) { }
 
-//nombre pokemon
-  getPokemon( termino: string): Observable<Pokebuscar>{
+  getId( id : number){
+    return this.iid = id;
+  }
+
+  //nombre pokemon
+  getPokemon( termino: string | number ): Observable<Pokebuscar>{
 
     this.configUrl =  this.http.get<Pokebuscar>(`${ this.url }pokemon/${ termino }`)
     return this.configUrl;
