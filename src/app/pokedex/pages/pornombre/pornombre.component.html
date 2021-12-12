@@ -1,13 +1,13 @@
-<div style="display: flex; justify-content: center;">Ingresa nombre o id del pokemon</div>
+<div ContenidoCentrado >Ingresa nombre o id del pokemon</div>
 <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Buscar por nombre...</mat-label>
     <input matInput  #pokemon (keyup.enter)="buscar()">
 </mat-form-field>
-<div style="display:  flex; justify-content: center;" [class]="error">
+<div ContenidoCentrado [class]="error">
   <span style="color: red;">Error de busqueda</span>
 </div>
 
-<div [class]="spinner" style="display:  flex; justify-content: center;">
+<div [class]="spinner" ContenidoCentrado>
   <mat-spinner color="warn"></mat-spinner>
 </div>
 

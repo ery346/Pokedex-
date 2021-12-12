@@ -58,16 +58,21 @@ export class ListapokemonComponent implements OnInit {
   }
 
   siguienteLista(urlSiguiente: string){
- 
+    this.barraDeProgreso = 'mostrar';
     this.pokemonS.getSiguienteLista(`${ urlSiguiente }`).subscribe( lista => {
-      this.barraDeProgreso = 'mostrar';
       this.pokemonS.getlistado( urlSiguiente ).subscribe(url => {
         this.listado = url.results;
         this.siguienteListado = url.next;
 
         this.arregloUrl = [...this.arregloUrl, urlSiguiente]
+
+        if (this.paginas === 43) {
+        this.paginas = 43;
+        this.desabilitarS = true;
+        }
+        this.paginas = this.paginas + 1;
         this.barraDeProgreso = 'ocultar';
-      })
+      });
     
     });
 
@@ -75,11 +80,7 @@ export class ListapokemonComponent implements OnInit {
       this.desabilitarA = false;
     }
    
-    this.paginas = this.paginas + 1;
-    if (this.paginas === 43) {
-      this.paginas = 43;
-      this.desabilitarS = true;
-    }
+    
   }
 
   anteriorLista(){
@@ -91,6 +92,7 @@ export class ListapokemonComponent implements OnInit {
       this.listado = url.results;
       this.siguienteListado = url.next;
       this.barraDeProgreso = 'ocultar';
+      this.paginas = this.paginas - 1;
     })
     
     if (this.arregloUrl.length === 1) {
@@ -99,7 +101,7 @@ export class ListapokemonComponent implements OnInit {
     if (this.paginas === 43) {
       this.desabilitarS = false;
     }
-    this.paginas = this.paginas - 1;
+    
   }
   
 }

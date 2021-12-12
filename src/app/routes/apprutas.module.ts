@@ -4,11 +4,23 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from '../pokedex/home/home.component';
 import { ComenzarGuard } from '../pokedex/guard/comenzar.guard';
+import { MiCuentaComponent } from '../auth/pages/mi-cuenta/mi-cuenta.component';
+
 
 const rutas: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('src/app/auth/auth.module').then( m => m.AuthModule )
+  },
+  {
+    path: 'cuenta/: id',
+    component: MiCuentaComponent,
+    canLoad: [ ComenzarGuard ],
+    canActivate: [ ComenzarGuard ]
   },
   {
     path: 'home',

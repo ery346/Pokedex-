@@ -1,0 +1,30 @@
+<div ContenidoCentrado ><h2>Inicia sesion</h2></div>
+<div ContenidoCentrado>
+
+    <form class="example-form" [formGroup]="formulario" (ngSubmit)="submit()" >
+     
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label> Usuario</mat-label>
+              <input matInput formControlName="usuario" >
+            </mat-form-field>
+
+          <p>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput type="password" formControlName="contraseña" >
+                </mat-form-field></td>
+          </p>
+     
+          <button mat-raised-button color="primary" type="submit" >Iniciar</button>
+          <mat-error *ngIf="error">
+            Los campos son incorrectos
+          </mat-error>
+      </form>
+</div>
+<p></p>
+  <div ContenidoCentrado>
+  <a routerLink="/auth/registro">Registrarme</a>
+</div>
+
+
+

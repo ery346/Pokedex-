@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router,  } from '@angular/router';
-import { Ability, Move, Pokebuscar, Species, Type } from '../../interfaces/pokeInter.interface';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Ability, Pokebuscar, Type } from '../../interfaces/pokeInter.interface';
 import { PokemonserviceService } from '../../service/pokemonservice.service';
 
 @Component({
@@ -22,7 +21,7 @@ import { PokemonserviceService } from '../../service/pokemonservice.service';
   `
   ]
 })
-export class PornombreComponent implements OnInit {
+export class PornombreComponent {
 
   img!: string;
   habilidades: Ability[] =[]
@@ -36,10 +35,6 @@ export class PornombreComponent implements OnInit {
   @ViewChild('pokemon')buscarPokemon! : ElementRef<HTMLInputElement>
 
   constructor(private pokemonS: PokemonserviceService) { }
-
-  ngOnInit(): void {
-  
-  }
 
   buscar(){
     this.valor = this.buscarPokemon.nativeElement.value;
@@ -55,7 +50,6 @@ export class PornombreComponent implements OnInit {
       this.habilidades = datos.abilities;
     }, err => { this.error = 'mostrar'; this.spinner = 'ocultar'})
 
-    console.log(this.termino)
   }
 
   

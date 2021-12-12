@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {  Species, Stat } from '../../interfaces/pokeInter.interface';
 import { PokemonserviceService } from '../../service/pokemonservice.service';
 
@@ -9,19 +9,13 @@ import { PokemonserviceService } from '../../service/pokemonservice.service';
   styles: [
   ]
 })
-export class InfoExtraComponent implements OnInit {
+export class InfoExtraComponent {
 
   @Input() estadisticas: Stat[] = [];
 
   @Input() experiencia: any
   nivel: Species[] =[];
   constructor(private servicio: PokemonserviceService) { }
-
-  ngOnInit(): void {
-   
-
-  }
-   
 
 
 }

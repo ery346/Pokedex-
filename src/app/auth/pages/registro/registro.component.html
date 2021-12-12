@@ -1,0 +1,79 @@
+<div ContenidoCentrado ><h2>Crear una nueva cuenta </h2></div>
+<div ContenidoCentrado>
+    <form class="example-form" [formGroup]="formulario" (ngSubmit)="submit()" >
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label> Nombre</mat-label>
+              <input matInput type="text" formControlName="nombre">
+              <mat-error *ngIf="validacion( 'nombre' )">
+                El nombre es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input matInput type="text" formControlName="apellido">
+              <mat-error *ngIf="validacion( 'apellido' )">
+                El apellido es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field></td>
+          </tr></table>
+        
+          <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Usuario</mat-label>
+              <input matInput type="text" formControlName="usuario" >
+              <mat-error *ngIf="validacion( 'usuario' )">
+                Debe contener minimo <strong>8 caracteres</strong>
+              </mat-error>
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Genero</mat-label>
+              <mat-select  formControlName="genero">
+                <mat-option *ngFor="let g of genero"  [value]="g.texto" >
+                  {{g.texto}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validacion( 'genero' )">
+                El genero es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </p>
+      
+          <p>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Correo</mat-label>
+                  <input matInput type="email" formControlName="correo">
+                  <mat-error *ngIf="validacion( 'correo' )">
+                    El formato email debe de ser <code>Ej.test@ejemplo.com</code>
+                  </mat-error>
+                </mat-form-field></td>
+          </p>
+        
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" formControlName="contraseña" >
+              <mat-error *ngIf="validacion( 'contraseña' )">
+                Debe contener min <strong>10 caracteres</strong>
+              </mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Confirmar contraseña</mat-label>
+              <input matInput type="password" formControlName="confirmacionC">
+              <mat-error *ngIf="validacion( 'confirmacionC' )">
+                La contraseña debe ser igual 
+              </mat-error>
+            </mat-form-field></td>
+          </tr></table>
+    
+          <button mat-raised-button color="accent" type="submit" routerLink="/pokemon/listapokemon"  >Iniciar</button>
+      </form>
+
+</div>
+<div ContenidoCentrado>
+  <a routerLink="/auth/login">Ya tengo una cuenta</a>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Ability } from '../../interfaces/pokeInter.interface';
 import { PokemonserviceService } from '../../service/pokemonservice.service';
 
@@ -9,7 +9,7 @@ import { PokemonserviceService } from '../../service/pokemonservice.service';
   styles: [
   ]
 })
-export class InfoListaComponent implements OnInit {
+export class InfoListaComponent {
 
   
   @Input() nombre!: string;
@@ -25,10 +25,6 @@ export class InfoListaComponent implements OnInit {
   @Input()ID!: number;
 
   constructor( private pokemonS: PokemonserviceService) { }
-
-  ngOnInit(): void {
-    
-  }
 
   masInfo( id: number){
     this.pokemonS.getId( id );

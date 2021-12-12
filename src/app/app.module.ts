@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { PokemonModule } from './pokedex/pokemon.module';
 import { ApprutasModule } from './routes/apprutas.module';
-import { HttpClientModule } from '@angular/common/http';
-
-
-
+import { AuthModule } from './auth/auth.module';
+import { MenuComponent } from './shared/components/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ApprutasModule,
     MaterialModule,
     PokemonModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

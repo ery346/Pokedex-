@@ -11,14 +11,14 @@
       <mat-list>
           <h2>Nombre </h2>
           <mat-divider></mat-divider>
-            <mat-list-item role="listitem">{{ dato.name | uppercase}}</mat-list-item>
+            <mat-list-item role="listitem">{{ nombre | uppercase}}</mat-list-item>
       </mat-list>
     </mat-grid-tile>
 
     <mat-grid-tile>
       <mat-list>
         <h2>Id</h2>
-        <div>{{ dato.id }}</div>
+        <div>{{ id }}</div>
       </mat-list>
     </mat-grid-tile>
 
@@ -46,16 +46,16 @@
 
     <mat-grid-tile>
       <mat-list>
-        <mat-list-item role="listitem">Peso: {{ dato.weight| alturapeso }} <code>kg</code> </mat-list-item>
+        <mat-list-item role="listitem">Peso: {{ peso| alturapeso }} <code>kg</code> </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item role="listitem">Altura: {{ dato.height| alturapeso}} <code>mts</code> </mat-list-item>
+        <mat-list-item role="listitem">Altura: {{ altura| alturapeso}} <code>mts</code> </mat-list-item>
       </mat-list>
     </mat-grid-tile>
 
     <mat-grid-tile>
       <mat-list>
         <h2>Experiencia Base</h2>
-        <div>{{ dato.base_experience }}</div>
+        <div>{{ experienciaB}}</div>
       </mat-list>
     </mat-grid-tile>
 

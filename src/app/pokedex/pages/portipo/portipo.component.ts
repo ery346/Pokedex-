@@ -47,7 +47,7 @@ export class PortipoComponent implements OnInit {
   experienciaB!: number;
   tiposVisible: boolean = false;
   barraDeProgreso: string = 'ocultar';
- 
+
   constructor(private pokemonS: PokemonserviceService) { }
 
   ngOnInit(): void {
@@ -74,7 +74,7 @@ export class PortipoComponent implements OnInit {
     this.urlPokemon = url;
     this.barraDeProgreso = 'mostrar';
     this.pokemonS.getInfoPOkemon(`${ this.urlPokemon }`).subscribe((datos: Pokebuscar) => {
-      console.log(datos)
+    
       this.id = datos.id;
       this.barraDeProgreso = 'ocultar';
       this.visibilidad = 'mostrar';

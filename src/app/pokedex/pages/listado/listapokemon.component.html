@@ -1,6 +1,6 @@
 
 <br>
-<mat-card-title style="display: flex; justify-content: center;">Listado de pokemones</mat-card-title>
+<mat-card-title ContenidoCentrado>Listado de pokemones</mat-card-title>
 <mat-divider></mat-divider>
 <br>
 <mat-grid-list cols="7" rowHeight="3:1" >
@@ -20,13 +20,13 @@
 <br>
 
   <div style="display: flex; justify-content: end;"> <span>{{ paginas }} de 43 paginas</span></div>
-  <div style="display: flex; justify-content: center;" [class]="barraDeProgreso">
+  <div ContenidoCentrado [class]="barraDeProgreso">
     <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
   </div>
   
   <mat-divider></mat-divider>
 
-  <div style="display: flex; justify-content: center; gap: 10px;">
+  <div ContenidoCentrado style="gap: 10px;">
     <button mat-flat-button color="primary" (click)="anteriorLista( )" [disabled]="desabilitarA" >
         <mat-icon><span class="material-icons">
           chevron_left

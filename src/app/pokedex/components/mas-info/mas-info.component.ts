@@ -13,11 +13,12 @@ export class MasInfoComponent implements OnInit {
   img!: string;
   habilidades: Ability[] =[]
   movimientos: any = [];
-  valor!: string;
-  termino: string = '';
-  dato!: Pokebuscar;
+  peso!: number;
+  altura!: number;
+  experienciaB!: number;
   tipo: Type[] = [];
-
+  nombre!: string;
+  id!: number;
   estadisticas: Stat[] = [];
 
   get identif(){
@@ -27,8 +28,11 @@ export class MasInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonS.getPokemon( this.identif ).subscribe( (datos: Pokebuscar ) => {
-      this.dato = datos;
-   
+      this.nombre = datos.name;
+      this.id = datos.id;
+      this.peso = datos.weight;
+      this.altura = datos.height;
+      this.experienciaB = datos.base_experience;
       this.estadisticas = datos.stats;
       this.tipo = datos.types;
       this.movimientos = datos.moves

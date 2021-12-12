@@ -19,7 +19,7 @@
 <mat-divider></mat-divider>
 
 <div *ngIf="img">
-  <mat-card align>Datos de -  <strong>{{ nombre | uppercase }}</strong> -</mat-card>
+  <mat-card align>Datos de -  <strong>{{ nombre | titlecase }}</strong> -</mat-card>
   <mat-tab-group mat-align-tabs="center" animationDuration="0ms" color="accent" backgroundColor="primary" class="example-small-box mat-elevation-z4">
       
    
@@ -55,11 +55,6 @@
     </mat-list-item>
   </div>
 </div>
-
-
-
-
-  
 
 <mat-divider></mat-divider>
 

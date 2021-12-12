@@ -11,13 +11,9 @@ export class PokemonserviceService {
   private url: string = 'https://pokeapi.co/api/v2/';
   private configUrl!: any;
 
-  validarr!: boolean;
   iid!: number;
   get urlListado(){
     return this.urlFijoListado;
-  }
-  get validacion(){
-    return this.validarr;
   }
 
   get identificador(){
@@ -65,10 +61,5 @@ export class PokemonserviceService {
     return this.http.get<PokemonLista20>(`${ urlSiguiente }`);
   }
   
-
-  //proteccion de rutas
-  validar( valor: boolean ){
-    return this.validarr = valor;
-  }
 
 }

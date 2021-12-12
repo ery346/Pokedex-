@@ -11,6 +11,7 @@ import { InfoExtraComponent } from './components/info-extra/info-extra.component
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { InfoListaComponent } from './components/info-lista/info-lista.component';
 import { MasInfoComponent } from './components/mas-info/mas-info.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -33,7 +34,8 @@ import { MasInfoComponent } from './components/mas-info/mas-info.component';
     CommonModule,
     FormsModule,
     MaterialModule,
-    PokemonRoutingModule
+    PokemonRoutingModule,
+    SharedModule
   ]
 })
 export class PokemonModule { }
